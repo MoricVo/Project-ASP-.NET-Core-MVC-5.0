@@ -1,0 +1,71 @@
+﻿@model Website_DatPhong_TrucTuyen.Models.TabTienichHomstay
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 style="padding:5px" class="card-title">Chỉnh sửa dữ liệu</h4>
+
+            <div class="page-header">
+                <div class="header-sub-title">
+                    <nav class="breadcrumb breadcrumb-dash">
+                        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="mdi mdi-home"></i>Trang chủ</a>
+                        <a asp-area="Admin" asp-controller="Admin_TabKhachhangs" asp-action="Index" class="breadcrumb-item"> Danh sách tiện ích</a>
+                        <span class="breadcrumb-item active">Thêm tiện ích</span>
+                    </nav>
+                </div>
+            </div>
+            <p class="card-description"> Bảng tiện ích </p>
+            <form asp-action="Create" class="forms-sample">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label>ID tiện ích(VD:TI_001)</label>
+                    <input type="text" asp-for="IdTienich" class="form-control" placeholder="Nhập ID">
+                </div>
+                <div class="form-group">
+                    <label>Tên tiện ích</label>
+                    <input type="text" asp-for="Tentienich" class="form-control" placeholder="Nhập tên tiện ích">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Giá tiền</label>
+                    <input type="text" asp-for="Giatien" class="form-control" id="exampleInputName1" placeholder="Nhập giá tiền">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Icon</label>
+                    <input type="text" asp-for="Icon" class="form-control" id="exampleInputName1" placeholder="Nhập icon">
+                </div>
+              
+
+
+                <button type="submit" class="btn btn-primary mr-2">Thêm tiện ích</button>
+                <button class="btn btn-dark">Hủy thao tác</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

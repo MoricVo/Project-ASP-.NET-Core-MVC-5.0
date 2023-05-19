@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Website_DatPhong_TrucTuyen.Models.TabYeuthich>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdHomestay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ghichu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdNguoidungNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdHomestay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ghichu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdNguoidungNavigation.IdNguoidung)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdYeuthich">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdYeuthich">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdYeuthich">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

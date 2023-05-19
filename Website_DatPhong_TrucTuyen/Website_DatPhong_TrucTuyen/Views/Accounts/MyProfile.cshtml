@@ -1,0 +1,89 @@
+﻿@model Website_DatPhong_TrucTuyen.Models.TabNguoidung
+
+@{
+    ViewData["Title"] = "MyProfile";
+    Layout = "~/Views/Shared/Layout_Manager.cshtml";
+}
+<hr />
+<br />
+<br />
+<br />
+<div  class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <form asp-action="MyProfile">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdNguoidung" />
+            <div class="form-group">
+                <label asp-for="Tennguoidung" class="control-label">Tên người dùng</label>
+                <input asp-for="Tennguoidung" class="form-control" />
+                <span asp-validation-for="Tennguoidung" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diachi" class="control-label">Địa chỉ</label>
+                <input asp-for="Diachi" class="form-control" />
+                <span asp-validation-for="Diachi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ngaysinh" class="control-label">Ngày</label>
+                <input asp-for="Ngaysinh" class="form-control" />
+                <span asp-validation-for="Ngaysinh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sdt" class="control-label"></label>
+                <input asp-for="Sdt" class="form-control" />
+                <span asp-validation-for="Sdt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cmnd" class="control-label"></label>
+                <input asp-for="Cmnd" class="form-control" />
+                <span asp-validation-for="Cmnd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label asp-for="Anhdaidien" for="exampleInputEmail3">Uploads ảnh</label>
+                    <input type="file" name="file" class="form-control" placeholder="chọn ảnh">
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Taikhoan" class="control-label"></label>
+                <input asp-for="Taikhoan" class="form-control" />
+                <span asp-validation-for="Taikhoan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Matkhau" class="control-label"></label>
+                <input asp-for="Matkhau" class="form-control" />
+                <span asp-validation-for="Matkhau" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Loainguoidung" class="control-label"></label>
+                <input asp-for="Loainguoidung" class="form-control" />
+                <span asp-validation-for="Loainguoidung" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kichhoat" class="control-label"></label>
+                <input asp-for="Kichhoat" class="form-control" />
+                <span asp-validation-for="Kichhoat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ngaylap" class="control-label"></label>
+                <input asp-for="Ngaylap" class="form-control" />
+                <span asp-validation-for="Ngaylap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salt" class="control-label"></label>
+                <input asp-for="Salt" class="form-control" />
+                <span asp-validation-for="Salt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

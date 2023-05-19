@@ -1,0 +1,49 @@
+﻿@model List<TabBaiviet>
+@if (Model != null && Model.Count > 0)
+{
+<table class="table table-striped w-auto">
+    <div class="float-end col-2">
+        <a asp-action="Create" asp-controller="User_TabBaiviets" class="btn btn-outline-danger">Tạo bản tin</a>
+    </div>
+    <!--Table head-->
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Tên bài viết</th>
+            <th>Nội dung</th>
+            <th>Ngày đăng</th>
+            <th>Lượt xem</th>
+            <th>Ghi chú</th>
+            <th>Tùy chọn</th>
+        </tr>
+    </thead>
+    <!--Table head-->
+    <!--Table body-->
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="table-info">
+                <th scope="row">@item.IdBaiviet</th>
+                <td>@item.Tieude</td>
+                <td>##########</td>
+                <td>@item.Ngaydang</td>
+                <td>@item.Luotxem</td>
+                <td>@item.Ghichu</td>
+                <td>
+                    <a class="btn btn-outline-success btn-icon-text"  asp-controller="User_TabBaiviets" asp-action="Edit" asp-route-id="@item.IdBaiviet"> Cập nhật <i class="mdi mdi-file-check btn-icon-append"></i></a> |
+           
+                    <a class="btn btn-outline-danger btn-icon-text"  asp-controller="User_TabBaiviets" asp-action="Delete" asp-route-id="@item.IdBaiviet">  <i class="mdi mdi-alert btn-icon-prepend"></i> Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <!--Table body-->
+
+
+</table>
+    <!--Table-->
+}
+else{
+    <p>Chưa có bài viết</p>
+}
+<!--Table-->

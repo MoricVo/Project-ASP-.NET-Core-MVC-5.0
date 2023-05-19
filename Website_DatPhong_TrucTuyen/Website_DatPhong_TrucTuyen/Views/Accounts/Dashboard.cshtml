@@ -1,0 +1,285 @@
+﻿@model Website_DatPhong_TrucTuyen.Models.TabNguoidung
+
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/Logi_View.cshtml";
+    List<TabBaiviet> DanhSachBaiViet = ViewBag.DonHang;
+    List<TabHomestay> DanhSachNhaNghi = ViewBag.DonHang2;
+    List<TabDiemdenThamquan> DanhSachDiaDiem = ViewBag.DonHang3;
+    Website_DatPhong_TrucTuyen.ModelViews.ChangePasswordViewModel changePassword1 = new Website_DatPhong_TrucTuyen.ModelViews.ChangePasswordViewModel();
+}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link href="~/Profiels/app.css" rel="stylesheet" />
+
+
+@if (Model.Loainguoidung == "KhachHang")
+{
+
+    <div class="container emp-profile">
+        <form method="post">
+            <div class="row">
+              
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="~/assets/images/faces/tankhoi.jpg" alt="" />
+                        <div class="file btn btn-lg btn-primary">
+                            Change Photo
+                            <input type="file" name="file" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="profile-head">
+                        <div class="col-md-4" style="float:right;">
+                            <a class="btn btn-secondary float-end" asp-action="MyProfile" asp-route-id="@Model.IdNguoidung">Cập nhật tài khoản</a>
+                        </div>
+                        <h5>
+                            @Model.Tennguoidung
+                        </h5>
+                        <h6>
+                            @Model.Loainguoidung
+                        </h6>
+
+                        <p class="proile-rating">NGÀY SINH : <span>@Model.Ngaysinh.Value.ToString("	M/d/yyyy")</span></p>
+
+
+
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Thông tin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Bài viết</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile" aria-selected="false">Nhà nghỉ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile5" role="tab" aria-controls="profile" aria-selected="false">Địa điểm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile9" role="tab" aria-controls="profile" aria-selected="false">Đổi mật khẩu</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-work">
+                        <p>Quản lý</p>
+                     
+                        <a href="">Bài viết của tôi</a><br />
+                        <a href="">Nhà nghỉ của tôi</a><br />
+                        <a href="">Khách hàng</a>
+                        <p>Cài đặt</p>
+                        <a href="">Sửa thông tin</a><br />
+                        <a href="">Báo cáo</a><br />
+                        <a href="">Đổi mật khẩu</a><br />
+                        <a href="">Đăng xuất</a><br />
+
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>User Id</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>@Model.IdNguoidung</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Địa chỉ</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>@Model.Diachi</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>@Model.Email</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>CMND</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>@Model.Cmnd</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>SDT</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>@Model.Sdt</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            @await Html.PartialAsync("BaiVietCuaToi", DanhSachBaiViet)
+                        </div>
+                        <div class="tab-pane fade" id="profile1" role="tabpanel" aria-labelledby="profile-tab">
+                            @await Html.PartialAsync("NhaNghiCuaToi", DanhSachNhaNghi)
+                        </div>
+                        <div class="tab-pane fade" id="profile5" role="tabpanel" aria-labelledby="profile-tab">
+                            @await Html.PartialAsync("DiaDiemThamQuan", DanhSachDiaDiem)
+                        </div>
+                        <div class="tab-pane fade" id="profile9" role="tabpanel" aria-labelledby="profile-tab">
+                            @await Html.PartialAsync("ChangePassword", changePassword1)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+}
+else
+{
+
+    <div class="container emp-profile">
+        <form method="post">
+          
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="profile-img">
+                        <img  src="~/Image2/@Html.DisplayFor(Model=> Model.Anhdaidien)" alt="" />
+                        <div class="file btn btn-lg btn-primary">
+                            Change Photo
+                            <input type="file" name="file" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="profile-head">
+                        <div class="col-md-4" style="float:right;">
+                            <a class="btn btn-secondary float-end" asp-action="MyProfile" asp-route-id="@Model.IdNguoidung">Cập nhật tài khoản</a>
+                        </div>
+                        <h5>
+                            @Model.Tennguoidung
+                        </h5>
+                        <h6>
+                            @Model.Loainguoidung
+                        </h6>
+                        <p class="proile-rating">NGÀY SINH : <span>@Model.Ngaysinh.Value.ToString("	M/d/yyyy")</span></p>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Thông tin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Bài viết của tôi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile" aria-selected="false">Nhà nghỉ của tôi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile5" role="tab" aria-controls="profile" aria-selected="false">Địa điểm của tôi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile9" role="tab" aria-controls="profile" aria-selected="false">Đổi mật khẩu</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-work">
+                        <p>Quản lý</p>
+                        <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a><br />
+                        <a href="">Bài viết của tôi</a><br />
+                        <a href="">Nhà nghỉ của tôi</a><br />
+                        <a href="">Khách hàng</a>
+                        <p>Cài đặt</p>
+                        <a href="">Sửa thông tin</a><br />
+                        <a href="">Báo cáo</a><br />
+                        <a href="">Đổi mật khẩu</a><br />
+                        <a href="">Đăng xuất</a><br />
+
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            
+                            <div class="row">
+                                
+                                <div class="col-md-6">
+                                    <label>User Id</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>@Model.IdNguoidung</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Địa chỉ</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>@Model.Diachi</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>@Model.Email</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>CMND</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>@Model.Cmnd</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>SDT</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>@Model.Sdt</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            @await Html.PartialAsync("BaiVietCuaToi", DanhSachBaiViet)
+                        </div>
+                        <div class="tab-pane fade" id="profile1" role="tabpanel" aria-labelledby="profile-tab">
+                            @await Html.PartialAsync("NhaNghiCuaToi", DanhSachNhaNghi)
+                        </div>
+                        <div class="tab-pane fade" id="profile5" role="tabpanel" aria-labelledby="profile-tab">
+                            @await Html.PartialAsync("DiaDiemThamQuan", DanhSachDiaDiem)
+                        </div>
+                        <div class="tab-pane fade" id="profile9" role="tabpanel" aria-labelledby="profile-tab">
+                            @await Html.PartialAsync("ChangePassword", changePassword1)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+}

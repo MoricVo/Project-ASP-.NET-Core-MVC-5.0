@@ -1,0 +1,45 @@
+﻿@model Website_DatPhong_TrucTuyen.Models.TabYeuthich
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>TabYeuthich</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdYeuthich" class="control-label"></label>
+                <input asp-for="IdYeuthich" class="form-control" />
+                <span asp-validation-for="IdYeuthich" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdNguoidung" class="control-label"></label>
+                <select asp-for="IdNguoidung" class ="form-control" asp-items="ViewBag.IdNguoidung"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdHomestay" class="control-label"></label>
+                <input asp-for="IdHomestay" class="form-control" />
+                <span asp-validation-for="IdHomestay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ghichu" class="control-label"></label>
+                <input asp-for="Ghichu" class="form-control" />
+                <span asp-validation-for="Ghichu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

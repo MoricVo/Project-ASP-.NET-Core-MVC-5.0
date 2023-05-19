@@ -1,0 +1,55 @@
+﻿@model Website_DatPhong_TrucTuyen.Models.TabChude
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 style="padding:5px" class="card-title">Chỉnh sửa dữ liệu</h4>
+
+            <div class="page-header">
+                <div class="header-sub-title">
+                    <nav class="breadcrumb breadcrumb-dash">
+                        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="mdi mdi-home"></i>Trang chủ</a>
+                        <a asp-area="Admin" asp-controller="Admin_TabKhachhangs" asp-action="Index" class="breadcrumb-item"> Danh sách chủ đề</a>
+                        <span class="breadcrumb-item active">Thêm chủ đề</span>
+                    </nav>
+                </div>
+            </div>
+            <p class="card-description"> Bảng chủ đề </p>
+            <form asp-action="Create" class="forms-sample">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label>ID chủ đề(VD:CD_001)</label>
+                    <input type="text" asp-for="IdChude" class="form-control" placeholder="Nhập ID">
+                </div>
+                <div class="form-group">
+                    <label>Tên chủ đề</label>
+                    <input type="text" asp-for="Tenchude" class="form-control" placeholder="Nhập tên chủ đề">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Ghi chú</label>
+                    <input type="text" asp-for="Ghichu" class="form-control" id="exampleInputName1" placeholder="Nhập ghi chú">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Ngày đăng</label>
+                    <input type="date" asp-for="Ngaydang" class="form-control" id="exampleInputName1" placeholder="Chọn ngày đăng">
+                </div>
+
+
+
+                <button type="submit" class="btn btn-primary mr-2">Thêm chủ đề</button>
+                <button class="btn btn-dark">Hủy thao tác</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Website_DatPhong_TrucTuyen.Models.TabDiemdenThamquan>
+
+<div class="row">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            if (item.Hinhphu3 == "NoiBat")
+            {
+                <div class="col-md-4 ftco-animate">
+
+                    <div class="project-wrap">
+
+                        <a asp-action="Details" asp-route-id="@item.IdDiemdenThamquan" class="img" style="background-image: url(/Image2/@Html.DisplayFor(modelItem => item.Hinhanh));border-radius:15px;">
+                            <span class="price">@item.Giatien.Value.ToString("#,##0")VNĐ/Người</span>
+                        </a>
+
+                        <div style="width:300px;height:310px;" class="text p-4">
+                            <span class="days"> Tours @item.Slngayo ngày</span>
+                            <h3><a href="#">@item.Tendiadiemthamquan</a></h3>
+                            <p class="location"><span class="fa fa-map-marker"> </span> @item.IdDiemdenNavigation.Tendiadiem</p>
+
+                            <ul>
+                                <li><span class="flaticon-shower"></span>@item.Tienich</li>
+                                <li><span class="flaticon-king-size"></span>1</li>
+                                <li><span class="flaticon-sun-umbrella"></span>Gần biển</li>
+                            </ul>
+                            <p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:500"><i class="fa-solid fa-calendar-days"></i> Cập nhật ngày:@item.Ngaycapnhat.Value.ToString("	M/d/yyyy")</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    }
+</div>

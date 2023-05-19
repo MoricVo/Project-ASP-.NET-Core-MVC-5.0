@@ -1,0 +1,120 @@
+﻿@model Website_DatPhong_TrucTuyen.Models.TabKhachhang
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 style="padding:5px" class="card-title">Chỉnh sửa dữ liệu</h4>
+
+            <div class="page-header">
+                <div class="header-sub-title">
+                    <nav class="breadcrumb breadcrumb-dash">
+                        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="mdi mdi-home"></i>Trang chủ</a>
+                        <a asp-area="Admin" asp-controller="Admin_TabKhachhangs" asp-action="Index" class="breadcrumb-item"> Danh sách khách hàng</a>
+                        <span class="breadcrumb-item active">Chỉnh sửa khách hàng</span>
+                    </nav>
+                </div>
+            </div>
+            <p class="card-description"> Bảng khách hàng </p>
+            <form asp-action="Edit" asp-route-id="@Model.IdKhachhang" method="post" class="forms-sample" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdKhachhang" />
+
+
+                <div class="form-group">
+                    <label>Tên khách hàng</label>
+                    <input type="text" asp-for="Tenkhachhang" class="form-control" placeholder="Nhập họ và tên">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Số điện thoại</label>
+                    <input type="text" asp-for="Sdt" class="form-control" id="exampleInputName1" placeholder="Nhập số điện thoại">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Địa chỉ</label>
+                    <input type="text" asp-for="Diachi" class="form-control" id="exampleInputName1" placeholder="Nhập địa chỉ">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Địa chỉ email</label>
+                    <input type="email" asp-for="Email" class="form-control" id="exampleInputEmail3" placeholder="Nhập Email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Số lượng người ở</label>
+                    <input type="text" asp-for="Slnguoio" class="form-control" id="exampleInputEmail3" placeholder="Nhập số lượng người ở">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Ghi chú</label>
+                    <input type="text" asp-for="Ghichu" class="form-control" id="exampleInputEmail3" placeholder="Nhập ghi chú">
+                </div>
+
+
+                <button type="submit" class="btn btn-primary mr-2">Cập nhật</button>
+                <button class="btn btn-dark">Hủy thao tác</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+
+@*<h1>Edit</h1>
+
+    <h4>TabKhachhang</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdKhachhang" />
+                <div class="form-group">
+                    <label asp-for="Tenkhachhang" class="control-label"></label>
+                    <input asp-for="Tenkhachhang" class="form-control" />
+                    <span asp-validation-for="Tenkhachhang" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Sdt" class="control-label"></label>
+                    <input asp-for="Sdt" class="form-control" />
+                    <span asp-validation-for="Sdt" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Diachi" class="control-label"></label>
+                    <input asp-for="Diachi" class="form-control" />
+                    <span asp-validation-for="Diachi" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Slnguoio" class="control-label"></label>
+                    <input asp-for="Slnguoio" class="form-control" />
+                    <span asp-validation-for="Slnguoio" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Ghichu" class="control-label"></label>
+                    <input asp-for="Ghichu" class="form-control" />
+                    <span asp-validation-for="Ghichu" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@
+

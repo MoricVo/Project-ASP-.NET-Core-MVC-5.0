@@ -1,0 +1,158 @@
+﻿@model Website_DatPhong_TrucTuyen.Models.TabHomestay
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 style="padding:5px" class="card-title">Chỉnh sửa dữ liệu</h4>
+
+            <div class="page-header">
+                <div class="header-sub-title">
+                    <nav class="breadcrumb breadcrumb-dash">
+                        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="mdi mdi-home"></i>Trang chủ</a>
+                        <a asp-area="Admin" asp-controller="Admin_TabDiemdenThamquans" asp-action="Index" class="breadcrumb-item"> Danh sách điểm tham quan</a>
+                        <span class="breadcrumb-item active">Chỉnh sửa điểm tham quan</span>
+                    </nav>
+                </div>
+            </div>
+            <p class="card-description"> Bảng điểm tham quan </p>
+            <form asp-action="Edit" asp-route-id="@Model.IdHomstay" method="post" class="forms-sample" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdHomstay" />
+                <div class="form-group">
+                    <label for="exampleInputName1">Chọn chủ nhà</label>
+                    <select class="form-control" asp-for="IdNguoidung" asp-items="ViewBag.IdNguoidung ">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Chọn địa điểm</label>
+                    <select class="form-control" asp-for="IdDiadiem" asp-items="ViewBag.IdDiadiem ">
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Nhập tên homestay</label>
+                    <input type="text" asp-for="Tenhomestay" class="form-control" placeholder="Nhập tên homestay">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Số lượng tối đa người ở</label>
+                    <input type="text" asp-for="Slngayo" class="form-control" id="exampleInputName1" placeholder="Nhập số lượng">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Ngày đến</label>
+                    <input type="date" asp-for="Ngayden" class="form-control" id="exampleInputName1" placeholder="Chọn ngày đến">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Ngày đi</label>
+                    <input type="date" asp-for="Ngaydi" class="form-control" id="exampleInputName1" placeholder="Chọn ngày đi">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Địa chỉ cụ thể</label>
+                    <input type="text" asp-for="Diachicuthe" class="form-control" id="exampleInputName1" placeholder="Nhập địa chỉ cụ thể">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Tiêu đề</label>
+                    <input type="text" asp-for="Tieude" class="form-control" id="exampleInputName1" placeholder="Nhập tiêu đề">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Nội dung</label>
+                    <input type="text" asp-for="Noidung" class="form-control" id="exampleInputEmail3" placeholder="Nhập nội dung">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Tiện ích 1</label>
+                    <input type="text" asp-for="Tienich5" class="form-control" id="exampleInputName1" placeholder="Tiện ích">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Tiện ích 2</label>
+                    <input type="text" asp-for="Tienich2" class="form-control" id="exampleInputName1" placeholder="Tiện ích">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Tiện ích 3</label>
+                    <input type="text" asp-for="Tienich3" class="form-control" id="exampleInputName1" placeholder="Tiện ích">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Tiện ích 4</label>
+                    <input type="text" asp-for="Tienich4" class="form-control" id="exampleInputName1" placeholder="Tiện ích">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Nội quy chính</label>
+                    <input type="text" asp-for="Noiquy" class="form-control" id="exampleInputEmail3" placeholder="Nhập nội quy">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Nội quy 1</label>
+                    <input type="text" asp-for="Noiquy1" class="form-control" id="exampleInputName1" placeholder="Nội quy">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Nội quy 2</label>
+                    <input type="text" asp-for="Noiquy2" class="form-control" id="exampleInputName1" placeholder="Nội quy">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Nội quy 3</label>
+                    <input type="text" asp-for="Noiquy3" class="form-control" id="exampleInputName1" placeholder="Nội quy">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Nội quy 4</label>
+                    <input type="text" asp-for="Noiquy4" class="form-control" id="exampleInputName1" placeholder="Nội quy">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Nội quy 5</label>
+                    <input type="text" asp-for="Noiquy5" class="form-control" id="exampleInputName1" placeholder="Nội quy">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Giá tiền(VND)</label>
+                    <input type="text" asp-for="Giatien" class="form-control" id="exampleInputEmail3" placeholder="Nhập giá tiền">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Hinhanh" for="exampleInputEmail3">Uploads ảnh</label>
+                    <input type="file" name="file" class="form-control" placeholder="chọn ảnh">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Nổi bật</label>
+                    <input type="text" asp-for="Hinh3" class="form-control" id="exampleInputEmail3" placeholder="Nổi bật">
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="exampleInputCity1">Ngày đăng</label>
+                    <input type="date" asp-for="Ngaydang" class="form-control" id="exampleInputCity1" placeholder="Ngày đăng">
+                </div>
+
+
+                <button type="submit" class="btn btn-primary mr-2">Lưu thay đổi</button>
+                <button class="btn btn-dark">Hủy thao tác</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

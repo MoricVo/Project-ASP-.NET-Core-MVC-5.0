@@ -1,0 +1,103 @@
+﻿@model Website_DatPhong_TrucTuyen.Models.TabBaiviet
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<h3>Vui lòng nhập thông tin bài viết của bạn!</h3>
+<h3 class="text-warning">Lưu ý!Bài viết của bạn sẽ được quản trị viên kiểm duyệt!</h3>
+<div class="col-12 grid-margin stretch-card">
+
+    <div class="card">
+        <a  style="margin-bottom:10px;" type="button" asp-controller="Accounts" asp-action="Dashboard" class="btn btn-danger">Trở lại trang quản lý</a>
+        <form asp-action="Edit" asp-controller="User_TabBaiviets" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <!-- 2 col  umn grid layout with text inputs for the first and last names -->
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label asp-for="IdBaiviet" class="control-label">Mã bài viết</label>
+                        <input asp-for="IdBaiviet" class="form-control" />
+                        <span asp-validation-for="IdBaiviet" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <input type="hidden" asp-for="IdNguoidung" value="@HttpContextAccessor.HttpContext.Session.GetString("IdNguoidung")" />
+                </div>
+            </div>
+
+            <!-- Text input -->
+            <div class="form-outline mb-4">
+                <label asp-for="IdChude" class="control-label">Chủ đề</label>
+                <select asp-for="IdChude" class="form-control" asp-items="ViewBag.IdChude"></select>
+            </div>
+
+            <!-- Text input -->
+            <div class="form-outline mb-4">
+                <label asp-for="Tieude" class="control-label">Tiêu đề</label>
+                <input asp-for="Tieude" class="form-control" />
+                <span asp-validation-for="Tieude" class="text-danger"></span>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <label asp-for="Noidung" class="control-label">Nội dung</label>
+                <input asp-for="Noidung" class="form-control" />
+                <span asp-validation-for="Noidung" class="text-danger"></span>
+            </div>
+
+            <!-- Number input -->
+            <div class="form-outline mb-4">
+                <label asp-for="Ghichu" class="control-label">Ghi chú</label>
+                <input asp-for="Ghichu" class="form-control" />
+                <span asp-validation-for="Ghichu" class="text-danger"></span>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="control-label"> Ngày đăng</label>
+                <input asp-for="Ngaydang" class="form-control" />
+                <span asp-validation-for="Ngaydang" class="text-danger"></span>
+            </div>
+
+            <!-- Message input -->
+            <div class="form-outline mb-4">
+                <label asp-for="Hinhanh" for="exampleInputEmail3">Uploads ảnh</label>
+                <input type="file" name="file" class="form-control" placeholder="chọn ảnh">
+            </div>
+            <div class="form-outline mb-4">
+                <label asp-for="Kiemduyet" class="control-label">Kiểm duyệt</label>
+                <input asp-for="Kiemduyet" type="hidden" value="0" class="form-control" />
+                <span asp-validation-for="Kiemduyet" class="text-danger"></span>
+            </div>
+
+            <!-- Checkbox -->
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Cập nhật bài viết</button>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,158 @@
+﻿@model Website_DatPhong_TrucTuyen.ModelViews.RegisterViewModel
+
+@{
+    ViewData["Title"] = "DangkyTaiKhoan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+
+    <link href="~/Dangky_Dangnhap/fonts/material-icon/css/material-design-iconic-font.min.css" rel="stylesheet" />
+    <!-- Main css -->
+    <link href="~/Dangky_Dangnhap/css/style.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Đăng ký</h2>
+                        <form asp-action="DangkyTaiKhoan" class="register-form">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input asp-for="FullName" type="text" placeholder="Tên của bạn" />
+                                <span asp-validation-for="FullName" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input asp-for="Diachi" type="text" placeholder="Địa chỉ" />
+                                <span asp-validation-for="Diachi" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input asp-for="NgaySinh" type="date" placeholder="Ngày sinh" />
+                                <span asp-validation-for="NgaySinh" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input asp-for="Cmnd" type="text" placeholder="CMND" />
+                                <span asp-validation-for="Cmnd" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group">
+                              
+                                <select asp-for="Loainguoidung" class="form-control" id="exampleSelectGender">
+                                    <option>ChuNha</option>
+                                    <option>KhachHang</option>
+                                    <option>NhanVien</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input asp-for="Email" type="email" placeholder="Gmail của bạn" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="text"><i class="zmdi zmdi-email"></i></label>
+                                <input t asp-for="Phone" type="text" placeholder="Sdt của bạn" />
+                                <span asp-validation-for="Phone" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input asp-for="Password" type="password" placeholder="Mật khẩu" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input asp-for="ConfirmPassword" type="password" placeholder="Xác nhận mật khẩu" />
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            </div>
+                            @*<div class="form-group">
+            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+        </div>*@
+                            <div class="col-12">
+                                <button class="btn btn-custom-size lg-size btn-secondary btn-primary-hover rounded-0">Đăng ký</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+
+                        <figure><img src="~/Dangky_Dangnhap/images/signup-image.jpg" alt="sing up image"></figure>
+                        <a href="#" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sing in  Form -->
+        @*<h1>DangkyTaiKhoan</h1>
+
+            <h4>RegisterViewModel</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="DangkyTaiKhoan">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="FullName" class="control-label"></label>
+                            <input asp-for="FullName" class="form-control" />
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Phone" class="control-label"></label>
+                            <input asp-for="Phone" class="form-control" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password" class="control-label"></label>
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ConfirmPassword" class="control-label"></label>
+                            <input asp-for="ConfirmPassword" class="form-control" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>*@
+
+
+    </div>
+
+    <!-- JS -->
+
+    <script src="~/Dangky_Dangnhap/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Dangky_Dangnhap/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

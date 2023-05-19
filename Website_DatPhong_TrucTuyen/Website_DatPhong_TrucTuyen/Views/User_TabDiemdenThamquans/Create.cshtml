@@ -1,0 +1,224 @@
+﻿@model Website_DatPhong_TrucTuyen.Models.TabDiemdenThamquan
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/Layout_Manager.cshtml";
+}
+<br />
+<br />
+<br />
+<h3>Vui lòng nhập thông tin bài viết của bạn!</h3>
+<h3 class="text-warning">Lưu ý!Bài viết của bạn sẽ được quản trị viên kiểm duyệt!</h3>
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <a style="margin-bottom:10px;" type="button" asp-controller="Accounts" asp-action="Dashboard" class="btn btn-danger">Trở lại trang quản lý</a>
+        <form asp-action="Create" asp-controller="User_TabDiemdenThamquans" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <!-- 2 col  umn grid layout with text inputs for the first and last names -->
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label asp-for="IdDiemden" class="control-label">Chọn điểm đến</label>
+                        <select asp-for="IdDiemden" class="form-control" asp-items="ViewBag.IdDiemden"></select>
+                    </div>
+                </div>
+                <div class="col">
+                    <input type="hidden" asp-for="IdNguoidung" value="@HttpContextAccessor.HttpContext.Session.GetString("IdNguoidung")" />
+                </div>
+            </div>
+
+            <!-- Text input -->
+            <div class="form-outline mb-4">
+                <label asp-for="Diachicuthe" class="control-label">Địa chỉ cụ thể</label>
+                <input asp-for="Diachicuthe" class="form-control" />
+                <span asp-validation-for="Diachicuthe" class="text-danger"></span>
+            </div>
+
+            <!-- Text input -->
+            <div class="form-outline mb-4">
+                <label asp-for="Slngayo" class="control-label">SL ngày ở</label>
+                <input asp-for="Slngayo" class="form-control" />
+                <span asp-validation-for="Slngayo" class="text-danger"></span>
+            </div>
+            <div class="form-outline mb-4">
+                <label asp-for="Giatien" class="control-label">Giá tiền</label>
+                <input asp-for="Giatien" class="form-control" />
+                <span asp-validation-for="Giatien" class="text-danger"></span>
+            </div>
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <label asp-for="Tendiadiemthamquan" class="control-label">Tên địa điểm</label>
+                <input asp-for="Tendiadiemthamquan" class="form-control" />
+                <span asp-validation-for="Tendiadiemthamquan" class="text-danger"></span>
+            </div>
+
+            <!-- Number input -->
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="exampleInputName1">Chọn các tiện ích</label>
+                        <div class="form-check">
+                            <input asp-for="Tienich" class="form-check-input" type="checkbox" value="Nhà bếp" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Nhà bếp
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="form-check">
+                            <input asp-for="Tienich1" class="form-check-input" type="checkbox" value="  Wifi Free" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Wifi Free
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input asp-for="Tienich2" class="form-check-input" type="checkbox" value="Máy giặt" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Máy giặt
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input asp-for="Tienich3" class="form-check-input" type="checkbox" value="  Máy rửa chén" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Máy rửa chén
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input asp-for="Tienich4" class="form-check-input" type="checkbox" value=" TVHD với Netflix" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                TVHD với Netflix
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+
+                    <div class="form-group">
+                        <label for="exampleInputName1">Nội quy (nếu có)</label>
+                        <div class="form-check">
+                            <input asp-for="Noiquy1" class="form-check-input" type="checkbox" value="Nhận phòng sau 3:00 PM" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Nhận phòng sau 3:00 PM
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input asp-for="Noiquy2" class="form-check-input" type="checkbox" value="  Trả phòng sau 11:00 PM" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Trả phòng sau 11:00 PM
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input asp-for="Noiquy3" class="form-check-input" type="checkbox" value=" Cấm thú cưng" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Cấm thú cưng
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input asp-for="Noiquy4" class="form-check-input" type="checkbox" value=" Cấm hút thuốc" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Cấm hút thuốc
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input asp-for="Noiquy5" class="form-check-input" type="checkbox" value=" Nhận phòng bằng thẻ DT" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Nhận phòng bằng thẻ DT
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-outline mb-4">
+                <div class="form-check">
+                    <input asp-for="Hinhphu3" class="form-check-input" type="checkbox" value="NoiBat" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Nổi bật
+                    </label>
+                </div>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="control-label"> Ngày mượn phòng</label>
+                <input asp-for="Ngaydatphong" type="date" class="form-control" />
+                <span asp-validation-for="Ngaydatphong" class="text-danger"></span>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="control-label"> Ngày trả phòng</label>
+                <input asp-for="Ngaytraphong" type="date" class="form-control" />
+                <span asp-validation-for="Ngaytraphong" class="text-danger"></span>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="control-label"> Ngày đăng</label>
+                <input asp-for="Ngaydang" type="date" class="form-control" />
+                <span asp-validation-for="Ngaydang" class="text-danger"></span>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="control-label"> Ngày cập nhật</label>
+                <input asp-for="Ngaycapnhat" type="date" class="form-control" />
+                <span asp-validation-for="Ngaycapnhat" class="text-danger"></span>
+            </div>
+            <div class="form-outline mb-4">
+                <label for="exampleInputEmail3">Nội dung</label>
+                <textarea class="form-control" asp-for="Hinhphu4">
+                 </textarea>
+            </div>
+            <!-- Message input -->
+            <div class="form-outline mb-4">
+                <label asp-for="Hinhanh" for="exampleInputEmail3">Uploads ảnh</label>
+                <input type="file" name="file" class="form-control" placeholder="chọn ảnh">
+            </div>
+            <div class="form-outline mb-4">
+                <label asp-for="Hinhphu2" class="control-label">Kiểm duyệt</label>
+                <input asp-for="Hinhphu2" type="hidden" value="0" class="form-control" />
+                <span asp-validation-for="Hinhphu2" class="text-danger"></span>
+            </div>
+
+            <!-- Checkbox -->
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Tạo bài viết</button>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

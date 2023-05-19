@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Website_DatPhong_TrucTuyen.Models.TabBaiviet>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="card">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    <span style="padding-right:70px" class="text-light">Chức năng </span>
+
+                </th>
+                <th class="text-light">Hình ảnh</th>
+                <th class="text-light">ID bài viết</th>
+                <th class="text-light">Người đăng</th>
+                <th class="text-light">Chủ đề</th>
+                <th class="text-light">Tiêu đề</th>
+
+
+
+
+
+                <th class="text-light">Kiểm duyệt</th>
+
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success">Tùy chọn</button>
+                                <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" id="dropdownMenuSplitButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div style="border-radius: 5px; border: 2px solid #191C24; background-color: #16003B " class="dropdown-menu" aria-labelledby="dropdownMenuSplitButton3">
+                                    <h6 style="text-align:center;" class="dropdown-header">----Chức năng----</h6>
+                                    <a class="btn btn-outline-success btn-icon-text" asp-action="Edit" asp-route-id="@item.IdBaiviet"> Cập nhật <i class="mdi mdi-file-check btn-icon-append"></i></a> |
+                                    <a class="btn btn-outline-primary btn-icon-text" asp-action="Details" asp-route-id="@item.IdBaiviet"> <i class="mdi mdi-file-check btn-icon-prepend"></i> Chi tiết</a> |
+                                    <a class="btn btn-outline-danger btn-icon-text" asp-action="Delete" asp-route-id="@item.IdBaiviet">  <i class="mdi mdi-alert btn-icon-prepend"></i> Xóa</a>
+
+                                </div>
+                            </div>
+                        </td>
+                        <td> <img width="200" height="200" src="~/Image2/@Html.DisplayFor(Model=> @item.Hinhanh)" /></td>
+
+                        <td class="text-warning">@item.IdBaiviet</td>
+                        <td>@item.IdNguoidungNavigation.Tennguoidung</td>
+                        <td>@item.IdChudeNavigation.Tenchude</td>
+                        <td>@item.Tieude</td>
+
+
+
+                        @*<td> <img style="width:100px;height:100px" src="~/Image/@Html.DisplayFor(Model=> @item.Hinhanh)" /></td>*@
+
+                        @if (item.Kiemduyet == 1)
+                        {
+                            <td class="text-success">@item.Kiemduyet</td>
+                        }
+                        else
+                        {
+                            <td class="text-danger">@item.Kiemduyet</td>
+                        }
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

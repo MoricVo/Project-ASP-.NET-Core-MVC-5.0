@@ -1,0 +1,175 @@
+﻿@model IEnumerable<Website_DatPhong_TrucTuyen.Models.TabKhachhang>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 style="padding-bottom:15px;" class="card-title">Hoverable Table</h4>
+            <h4 class="card-title">Dữ liệu khách hàng!(My JDBC)</h4>
+
+            <div class="header-sub-title">
+                <nav class="breadcrumb breadcrumb-dash">
+                    <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="mdi mdi-home"></i>Trang chủ</a>
+                    <a asp-area="Admin" asp-controller="Admin_TabKhachhangs" asp-action="Index" class="breadcrumb-item"> Danh sách khách hàng</a>
+                    <span class="breadcrumb-item active">Chỉnh sửa khách hàng</span>
+                </nav>
+            </div>
+
+            <div class="btn-group ">
+                <div class="col-lg-12 ">
+                    <form class="d-flex" role="search">
+                        <input style="max-width:250px;max-height:40px;" class="form-control me-2" type="search" placeholder="Bạn muốn tìm gì?" aria-label="Search">
+                        <button style="max-width:100px;max-height:35px;" class="btn btn-outline-success" type="submit">Tìm</button>
+                    </form>
+                </div>
+            </div>
+            <div class="btn-group ">
+                <div class="col-lg-10 ">
+                    <select class="btn btn-inverse-primary btn-fw" style="max-width:250px;max-height:35px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" asp-items="ViewBag.Loainguoidung1 ">
+                        <option value="" disabled selected>Chọn địa chỉ</option>
+                    </select>
+                </div>
+            </div>
+            <div class="btn-group ">
+                <div class="col-lg-10 ">
+                    <select class="btn btn-inverse-danger btn-fw" style="max-width:250px;max-height:35px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" asp-items="ViewBag.TrangThai ">
+                        <option value="" disabled selected>Chọn trạng thái</option>
+                    </select>
+                </div>
+            </div>
+            <div class="btn-group " style="float:right;padding-right:26px;">
+                <div class="col-lg-12 ">
+                    <a asp-action="Create" type="button" style="max-width:250px;max-height:40px;" class="btn btn-inverse-warning btn-fw">Thêm khách hàng+</a>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-light">Tùy chọn</th>
+                            <th class="text-light">ID</th>
+                            <th class="text-light">Tên khách hàng</th>
+                            <th class="text-light">Số điện thoại</th>
+                            <th class="text-light">Địa chỉ</th>
+                            <th class="text-light">Email</th>
+                            <th class="text-light">Số lượng người ở</th>
+                            <th class="text-light">Ghi chú</th>
+
+
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr style="color:whitesmoke;">
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-success">Tùy chọn</button>
+                                            <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" id="dropdownMenuSplitButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <div style="border-radius: 5px; border: 2px solid #191C24; background-color: #16003B " class="dropdown-menu" aria-labelledby="dropdownMenuSplitButton3">
+                                                <h6 style="text-align:center;" class="dropdown-header">----Chức năng----</h6>
+                                                <a class="btn btn-outline-success btn-icon-text" asp-action="Edit" asp-route-id="@item.IdKhachhang"> Cập nhật <i class="mdi mdi-file-check btn-icon-append"></i></a> |
+                                                <a class="btn btn-outline-primary btn-icon-text" asp-action="Details" asp-route-id="@item.IdKhachhang"> <i class="mdi mdi-file-check btn-icon-prepend"></i> Chi tiết</a> |
+                                                <a class="btn btn-outline-danger btn-icon-text" asp-action="Delete" asp-route-id="@item.IdKhachhang">  <i class="mdi mdi-alert btn-icon-prepend"></i> Xóa</a>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-warning">@item.IdKhachhang</td>
+                                    <td>@item.Tenkhachhang</td>
+                                    <td>(+84) @item.Sdt</td>
+                                    <td>@item.Diachi</td>
+
+                                    <td>@item.Email</td>
+                                    <td>@item.Slnguoio</td>
+                                    <td class="text-danger">@item.Ghichu</td>
+
+
+                                    @*<td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
+                                <td><label class="badge badge-danger">Pending</label></td>*@
+
+
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@*<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tenkhachhang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sdt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diachi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Slnguoio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ghichu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tenkhachhang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sdt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diachi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Slnguoio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ghichu)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdKhachhang">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdKhachhang">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdKhachhang">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>*@

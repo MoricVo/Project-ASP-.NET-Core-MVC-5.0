@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Website_DatPhong_TrucTuyen.Models.TabDanhgium>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 style="padding-bottom:15px;" class="card-title">Hoverable Table</h4>
+            <h4 class="card-title">Dữ liệu người dùng đánh giá!(My JDBC)</h4>
+
+
+
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-light">ID</th>
+                            <th class="text-light">Phòng</th>
+                            <th class="text-light">Người đánh giá</th>
+                            <th class="text-light">Nội dung</th>
+                            <th class="text-light">Điểm</th>
+                            <th class="text-light">Ngày đăng</th>
+                            <th>
+
+                                <span class="text-light">Xóa</span>
+                            </th>
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                        <tr>
+                            <td class="text-warning">@item.IdDanhgia</td>
+                            <td>@item.IdHomestayNavigation.Tenhomestay</td>
+                            <td>@item.IdNguoidungNavigation.Tennguoidung</td>
+                            <td>@item.Noidung</td>
+                            <td>@item.Diem</td>
+                            <td>@item.Ngaydang.Value.ToString("	M/d/yyyy")</td>
+
+
+
+
+                            @*<td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
+        <td><label class="badge badge-danger">Pending</label></td>*@
+
+                            <td>
+                              
+                                <a class="btn btn-outline-primary btn-icon-text" asp-action="Details" asp-route-id="@item.IdDanhgia"> <i class="mdi mdi-file-check btn-icon-prepend"></i> Chi tiết</a> |
+                                <a class="btn btn-outline-danger btn-icon-text" asp-action="Delete" asp-route-id="@item.IdDanhgia">  <i class="mdi mdi-alert btn-icon-prepend"></i> Xóa</a>
+                            </td>
+                        </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

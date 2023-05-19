@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Website_DatPhong_TrucTuyen.Models.TabDiemdenThamquan>
+
+@{
+    ViewData["Title"] = "PhanLoai";
+    Layout = "~/Views/Shared/Layou_Diemden_Thamquan.cshtml";
+}
+
+
+<section class="ftco-section">
+    <!-- Navbar -->
+    <!-- Navbar -->
+
+    <form style="width:200px;" asp-action="PhanLoai" method="get">
+        <select asp-items="ViewBag.IdNguoidung" name="IdNguoidung" onchange="forms[0].submit()"></select>
+    </form>
+        <h3 style="padding-bottom:20px;font-weight:500"><a href="#">Các địa điểm phổ biến!</a></h3>
+        <div class="row">
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <div class="col-md-4 ftco-animate">
+
+                        <div class="project-wrap">
+
+                            <a asp-action="Details" asp-route-id="@item.IdDiemdenThamquan" class="img" style="background-image: url(/Image2/@Html.DisplayFor(modelItem => item.Hinhanh));border-radius:15px;">
+                                <span class="price">@item.Giatien.Value.ToString("#,##0")VNĐ/Người</span>
+
+
+                            </a>
+
+                            <div style="width:300px;height:310px;" class="text p-4">
+                                <span class="days"> Tours @item.Slngayo ngày</span>
+                                <h3><a href="#">@item.Tendiadiemthamquan</a></h3>
+                           
+
+                                <ul>
+                                    <li>
+                                        <i class="fa-sharp fa-solid fa-wifi text-secondary"></i>
+                                        @item.Tienich1
+                                    </li>
+                                    <li>
+                                        <i class="fa-sharp fa-solid fa-hard-drive text-warning"></i>
+                                        @item.Tienich2
+                                    </li>
+                                    <li>
+                                        <i class="fa-sharp fa-solid fa-kitchen-set text-success"></i>
+                                        @item.Tienich
+                                    </li>
+                                </ul>
+                                <p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:500"><i class="fa-solid fa-calendar-days"></i> Cập nhật ngày:@item.Ngaycapnhat.Value.ToString("	M/d/yyyy")</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+ 
+</section>
+
+

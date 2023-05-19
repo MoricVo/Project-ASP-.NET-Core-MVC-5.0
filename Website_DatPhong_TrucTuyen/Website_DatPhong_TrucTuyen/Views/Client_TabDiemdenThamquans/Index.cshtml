@@ -1,0 +1,156 @@
+﻿@model IEnumerable<Website_DatPhong_TrucTuyen.Models.TabDiemdenThamquan>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Layou_Diemden_Thamquan.cshtml";
+}
+
+
+
+
+<section class="ftco-section">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Container wrapper -->
+        <div class="container">
+            <!-- Navbar brand -->
+            <a class="navbar-brand me-2" href="https://mdbgo.com/">
+                <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+                     height="16"
+                     alt="MDB Logo"
+                     loading="lazy"
+                     style="margin-top: -1px;" />
+            </a>
+
+            <!-- Toggle button -->
+            <button class="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarButtonsExample"
+                    aria-controls="navbarButtonsExample"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="padding-right:10px;">
+                    <li class="nav-item">
+                        <a type="button" class="btn btn-success me-3" asp-controller="Client_TabDiemdenThamquans" asp-action="TimKiem">Tìm kiếm địa điểm</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="padding-right:10px;">
+                    <li class="nav-item">
+                        <a type="button" class="btn btn-warning me-3" asp-controller="Client_TabDiemdenThamquans" asp-action="PhanLoai">Lọc địa điểm theo chủ nhà</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a type="button" class="btn btn-danger me-3" asp-controller="Client_TabHomestays" asp-action="Phân loại">Lọc nhà nghỉ theo địa điểm</a>
+                    </li>
+                </ul>
+                <!-- Left links -->
+
+
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+    <h3 style="padding-bottom:20px;font-weight:500"><a href="#">Các địa điểm nổi bật trong tuần!</a></h3>
+    <div class="container">
+        <div class="row">
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    if (item.Hinhphu3 == "NoiBat")
+                    {
+                        <div class="col-md-6 ftco-animate">
+
+                            <div class="project-wrap">
+
+                                <a asp-action="Details" asp-route-id="@item.IdDiemdenThamquan" class="img" style="background-image: url(/Image2/@Html.DisplayFor(modelItem => item.Hinhanh));border-radius:15px;">
+                                    <span class="price">@item.Giatien.Value.ToString("#,##0")VNĐ/Người</span>
+
+
+                                </a>
+
+                                <div style="width:400px;height:310px;" class="text p-4">
+                                    <span class="days"> Tours @item.Slngayo ngày</span>
+                                    <h3><a href="#">@item.Tendiadiemthamquan</a></h3>
+                                    <p class="location"><span class="fa fa-map-marker"> </span> @item.IdDiemdenNavigation.Tendiadiem</p>
+
+                                    <ul>
+                                        <li>
+                                            <i class="fa-sharp fa-solid fa-wifi text-secondary"></i>
+                                            @item.Tienich1
+                                        </li>
+                                        <li>
+                                            <i class="fa-sharp fa-solid fa-hard-drive text-warning"></i>
+                                            @item.Tienich2
+                                        </li>
+                                        <li>
+                                            <i class="fa-sharp fa-solid fa-kitchen-set text-success"></i>
+                                            @item.Tienich
+                                        </li>
+                                    </ul>
+                                    <p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:500"><i class="fa-solid fa-calendar-days"></i> Cập nhật ngày:@item.Ngaycapnhat.Value.ToString("	M/d/yyyy")</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+        <h3 style="padding-bottom:20px;font-weight:500"><a href="#">Các địa điểm phổ biến!</a></h3>
+        <div class="row">
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <div class="col-md-4 ftco-animate">
+
+                        <div class="project-wrap">
+
+                            <a asp-action="Details" asp-route-id="@item.IdDiemdenThamquan" class="img" style="background-image: url(/Image2/@Html.DisplayFor(modelItem => item.Hinhanh));border-radius:15px;">
+                                <span class="price">@item.Giatien.Value.ToString("#,##0")VNĐ/Người</span>
+
+
+                            </a>
+
+                            <div style="width:300px;height:310px;" class="text p-4">
+                                <span class="days"> Tours @item.Slngayo ngày</span>
+                                <h3><a href="#">@item.Tendiadiemthamquan</a></h3>
+                                <p class="location"><span class="fa fa-map-marker"> </span> @item.IdDiemdenNavigation.Tendiadiem</p>
+
+                                <ul>
+                                    <li>
+                                        <i class="fa-sharp fa-solid fa-wifi text-secondary"></i>
+                                        @item.Tienich1
+                                    </li>
+                                    <li>
+                                        <i class="fa-sharp fa-solid fa-hard-drive text-warning"></i>
+                                        @item.Tienich2
+                                    </li>
+                                    <li>
+                                        <i class="fa-sharp fa-solid fa-kitchen-set text-success"></i>
+                                        @item.Tienich
+                                    </li>
+                                </ul>
+                                <p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:500"><i class="fa-solid fa-calendar-days"></i> Cập nhật ngày:@item.Ngaycapnhat.Value.ToString("	M/d/yyyy")</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+    </div>
+</section>
+
+

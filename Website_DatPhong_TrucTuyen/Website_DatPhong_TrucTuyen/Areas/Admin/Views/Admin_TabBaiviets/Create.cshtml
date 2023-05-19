@@ -1,0 +1,85 @@
+﻿@model Website_DatPhong_TrucTuyen.Models.TabBaiviet
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body" style="color:whitesmoke;">
+            <h4 style="padding:5px" class="card-title">Chỉnh sửa dữ liệu</h4>
+
+            <div class="page-header">
+                <div class="header-sub-title">
+                    <nav class="breadcrumb breadcrumb-dash">
+                        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="mdi mdi-home"></i>Trang chủ</a>
+                        <a asp-area="Admin" asp-controller="Admin_TabBaiviets" asp-action="Index" class="breadcrumb-item"> Danh sách bài viết</a>
+                        <span class="breadcrumb-item active">Thêm bài viết</span>
+                    </nav>
+                </div>
+            </div>
+            <p class="card-description"> Bảng bài viết </p>
+            <form asp-action="Create" class="forms-sample" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label>ID bài viết(VD:BV_001)</label>
+                    <input type="text" asp-for="IdBaiviet" class="form-control" placeholder="Nhập ID">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Chọn người đăng</label>
+                    <select class="form-control" asp-for="IdNguoidung" asp-items="ViewBag.IdNguoidung ">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Chọn chủ đề</label>
+                    <select class="form-control" asp-for="IdChude" asp-items="ViewBag.IdChude"></select>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Tiêu đề</label>
+                    <input type="text" asp-for="Tieude" class="form-control" id="exampleInputName1" placeholder="Nhập số tiêu đề">
+                </div>
+                <div class="mt-3 col-12 text-center">
+                    <label class="badge badge-success">NỘI DUNG</label>
+                    <textarea asp-for="Noidung" type="text" class="form-control ckeditor"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Ghi chú</label>
+                    <input type="text" asp-for="Ghichu" class="form-control" id="exampleInputName1" placeholder="Nhập ghi chú">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Hinhanh" for="exampleInputEmail3">Uploads ảnh</label>
+                    <input type="file" name="file" class="form-control" placeholder="chọn ảnh">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Ngày đăng</label>
+                    <input type="date" asp-for="Ngaydang" class="form-control" id="exampleInputName1" placeholder="Nhập ngày đăng">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Lượt xem</label>
+                    <input type="text" asp-for="Luotxem" class="form-control" id="exampleInputName1" placeholder="Nhập lượt xem">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Kiểm duyệt</label>
+                    <input type="text" asp-for="Kiemduyet" class="form-control" id="exampleInputName1" placeholder="Kiểm duyệt">
+                </div>
+
+
+
+                <button type="submit" class="btn btn-primary mr-2">Thêm bài viết</button>
+                <button class="btn btn-dark">Hủy thao tác</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

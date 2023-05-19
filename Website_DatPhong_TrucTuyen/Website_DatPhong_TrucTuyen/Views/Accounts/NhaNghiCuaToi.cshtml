@@ -1,0 +1,53 @@
+﻿@model List<TabHomestay>
+@if (Model != null && Model.Count > 0)
+{
+    <div class="float-end col-2">
+        <a asp-action="Create" asp-controller="User_TabHomestays" class="btn btn-outline-danger">Tạo bản tin</a>
+    </div>
+    <table style="display:block;" class="table table-sm table-striped">
+
+        <!--Table head-->
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Tên homestay</th>
+                <th>Ngày ở</th>
+                <th>Địa chỉ</th>
+                <th>Tiêu đề</th>
+                <th>Mô tả</th>
+                <th>Ngày đăng</th>
+                <th>Tùy chọn</th>
+            </tr>
+        </thead>
+        <!--Table head-->
+        <!--Table body-->
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr style="overflow-x:auto;overflow-y:hidden;" class="table-info">
+                <th scope="row">@item.IdHomstay</th>
+                <td>@item.Tenhomestay</td>
+                <td>@item.Slngayo</td>
+                <td>@item.Diachicuthe</td>
+                <td>@item.Tieude</td>
+                <td>@item.Noidung</td>
+                <td>@item.Ngaydang</td>
+                <td>
+                    <a class="btn btn-outline-success btn-icon-text" asp-controller="User_TabBaiviets" asp-action="Edit" asp-route-id="@item.IdHomstay"> Cập nhật <i class="mdi mdi-file-check btn-icon-append"></i></a> |
+
+                    <a class="btn btn-outline-danger btn-icon-text" asp-controller="User_TabBaiviets" asp-action="Delete" asp-route-id="@item.IdHomstay">  <i class="mdi mdi-alert btn-icon-prepend"></i> Xóa</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+        <!--Table body-->
+
+
+    </table>
+    <!--Table-->
+}
+else
+{
+    <p>Chưa có nhà nghỉ</p>
+}
+<!--Table-->

@@ -1,0 +1,54 @@
+﻿@model Website_DatPhong_TrucTuyen.Models.TabTienichHomstay
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 style="padding-bottom:10px" class="card-title"> Chi tiết tiện ích</h4>
+            <div class="page-header">
+                <div class="header-sub-title">
+                    <nav class="breadcrumb breadcrumb-dash">
+                        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="mdi mdi-home"></i>Trang chủ</a>
+                        <a asp-area="Admin" asp-controller="Admin_TabKhachhangs" asp-action="Index" class="breadcrumb-item"> Danh sách tiện ích</a>
+                        <span class="breadcrumb-item active">Chi tiết tiện ích:@Model.IdTienich</span>
+                    </nav>
+                </div>
+            </div>
+            <h4 style="padding-bottom:1px" class="card-title"> Chi tiết tiện ích</h4>
+
+
+            <div style="padding-bottom:10px" class="table-responsive">
+                <table class="table table-dark">
+
+                    <tbody>
+                        <tr>
+
+                            <td class="text-warning" style="color:whitesmoke;font-size:17px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:800"> Tiện ích:@Model.Tentienich </td>
+
+                        </tr>
+                        <tr>
+                            <td style="color:whitesmoke;font-size:14px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:500">Giá:@Model.Giatien </td>
+
+                        </tr>
+                        <tr>
+                            <td style="color:whitesmoke;font-size:14px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:500">Icon:@Model.Icon </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="IdTienich" />
+                <input type="submit" value="Xác nhận xóa" class="btn btn-danger btn-rounded btn-fw" /> |
+                <a class="btn btn-primary btn-rounded btn-fw" asp-action="Index">Quay lại</a>
+            </form>
+        </div>
+    </div>
+</div>

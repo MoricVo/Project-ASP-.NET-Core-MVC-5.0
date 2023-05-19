@@ -1,0 +1,510 @@
+﻿@model Website_DatPhong_TrucTuyen.Models.TabHomestay
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Layout_Homestays.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Trang chủ (My JDBC)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/assets_nguoidung/css/animate.css">
+
+    <link rel="stylesheet" href="~/assets_nguoidung/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/assets_nguoidung/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/assets_nguoidung/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/assets_nguoidung/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/assets_nguoidung/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/Home_Details/css/danhgia.css" rel="stylesheet" />
+    <link href="~/Home_Details/css/card_detail.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/assets_nguoidung/css/flaticon.css">
+    <link rel="stylesheet" href="~/assets_nguoidung/css/style.css">
+</head>
+<style>
+    div.card-tmp {
+        box-shadow: 0px 0px 10px rgb(237, 237, 237);
+        border-radius: 20px;
+    }
+
+    .btn-grad {
+        background-image: linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%);
+        text-align: center;
+        border-color: none;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 10px;
+        display: block;
+    }
+
+    .btn:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
+</style>
+<body>
+    <section class="ftco-section ftco-no-pb">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="search-wrap-1 ftco-animate">
+                        <form action="#" class="search-property-1">
+                            <div class="row no-gutters">
+                                <div class="col-lg d-flex">
+                                    <div class="form-group p-4 border-0">
+                                        <label for="#">Destination</label>
+                                        <div class="form-field">
+                                            <div class="icon"><span class="fa fa-search"></span></div>
+                                            <input type="text" class="form-control" placeholder="Search place">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg d-flex">
+                                    <div class="form-group p-4">
+                                        <label for="#">Check-in date</label>
+                                        <div class="form-field">
+                                            <div class="icon"><span class="fa fa-calendar"></span></div>
+                                            <input type="text" class="form-control checkin_date" placeholder="Check In Date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg d-flex">
+                                    <div class="form-group p-4">
+                                        <label for="#">Check-out date</label>
+                                        <div class="form-field">
+                                            <div class="icon"><span class="fa fa-calendar"></span></div>
+                                            <input type="text" class="form-control checkout_date" placeholder="Check Out Date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg d-flex">
+                                    <div class="form-group p-4">
+                                        <label for="#">Price Limit</label>
+                                        <div class="form-field">
+                                            <div class="select-wrap">
+                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                                <select name="" id="" class="form-control">
+                                                    <option value="">$5,000</option>
+                                                    <option value="">$10,000</option>
+                                                    <option value="">$50,000</option>
+                                                    <option value="">$100,000</option>
+                                                    <option value="">$200,000</option>
+                                                    <option value="">$300,000</option>
+                                                    <option value="">$400,000</option>
+                                                    <option value="">$500,000</option>
+                                                    <option value="">$600,000</option>
+                                                    <option value="">$700,000</option>
+                                                    <option value="">$800,000</option>
+                                                    <option value="">$900,000</option>
+                                                    <option value="">$1,000,000</option>
+                                                    <option value="">$2,000,000</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg d-flex">
+                                    <div class="form-group d-flex w-100 border-0">
+                                        <div class="form-field w-100 align-items-center d-flex">
+                                            <input type="submit" value="Search" class="align-self-stretch form-control btn btn-primary">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="site-section site-section-sm">
+        <div class="container">
+            <h5 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-weight:600;font-size:35px;"><i class="fa-sharp fa-solid fa-language"></i> @Model.Tenhomestay </h5>
+            <p style="font-weight:400;font-family:'Times New Roman', Times, serif"><i class="fa-sharp fa-solid fa-star"></i>4.5 điểm đánh giá <span><i class="fa-sharp fa-solid fa-medal"></i> Chủ nhà siêu cấp</span> <a href=""><span style="font-weight:900">@Model.Diachicuthe</span></a>  <a href=""><span style="text-decoration: underline;" class="float-lg-right"><i class="fa-sharp fa-solid fa-heart-circle-check"></i> Thêm vào mục yêu thích</span></a>  </p>
+            <div class="row">
+
+                <div class="col-lg-8">
+
+
+                    <div><img style="border-radius:15px;" width="680" height="150" src="~/Image2/@Html.DisplayFor(modelItem => Model.Hinhanh)" class="img-fluid"></div>
+
+
+                    <div class="bg-white property-body">
+                        <div class="row mb-5">
+                            <div class="col-md-6">
+                                <strong class="text-info h3 mb-6">@Model.Giatien.Value.ToString("#,##0")VNĐ <span style="color:black;">đêm</span></strong>
+
+                            </div>
+
+                            <div class="col-md-5">
+                                <ul class="property-specs-wrap mb-2 mb-lg-0  float-lg-right">
+                                    <li class="text-warning">
+                                        <span class="property-specs">Cập nhật ngày</span>
+                                        <span class="property-specs-number">@Model.Ngaydang.Value.ToString("	M/d/yyyy")</span>
+
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row mb-6">
+                            <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
+                                <span class="d-inline-block text-black mb-0 caption-text">Địa chỉ</span>
+                                <strong class="d-block">@Model.Diachicuthe</strong><input type="hidden" id="diachi">
+                            </div>
+                            <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
+                                <span class="d-inline-block text-black mb-0 caption-text">Tỉnh thành</span>
+                                <strong class="d-block">@Model.IdDiadiemNavigation.Tendiadiem</strong>
+                            </div>
+                            <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
+                                <span class="d-inline-block text-black mb-0 caption-text">Số lượng tối đa</span>
+                                <strong class="d-block">@Model.Slngayo Người</strong>
+                                <strong class="d-block">(Người lớn & Trẻ em)</strong>
+
+                            </div>
+                        </div>
+                        <h2 class="h4 text-black">Xem địa chỉ trên bản đồ</h2>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d981.1383856737295!2d105.43183482919915!3d10.37753709953707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310a735c1217f3e5%3A0xeda22bd18403a8dc!2zVHLhu40gTmfDom4gTmfDom4!5e0!3m2!1sen!2s!4v1665210016415!5m2!1sen!2s" width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                        <div class="row no-gutters mt-5">
+                            <div class="col-12">
+                                <h2 class="h4 text-black mb-3">Ảnh liên quan</h2>
+                            </div>
+                            <div class="col-sm-6 col-md-4 col-lg-3">
+                                <a href="http://localhost:3000/assets/images/img_1.jpg" class="image-popup gal-item"> <img src="~/Image2/20a73c3c-41bc-43de-a841-b5d2d70af413_6ca3ce8d-692d-4cbc-b004-7d09d6477a47.webp" alt="Image" class="img-fluid" /></a>
+                            </div>
+                            <div class="col-sm-6 col-md-4 col-lg-3">
+                                <a href="http://localhost:3000/assets/images/img_2.jpg" class="image-popup gal-item">  <img src="~/Image2/6d194950-4a28-4652-9381-77385e17b9cc_7484f8be3e6bbb501b04a915d8fc0005.jpg" alt="Image" class="img-fluid" /></a>
+                            </div>
+                            <div class="col-sm-6 col-md-4 col-lg-3">
+                                <a href="http://localhost:3000/assets/images/img_3.jpg" class="image-popup gal-item">
+                                    <img style="height:121px;" src="~/Image2/326c27d4-a81f-400b-9c0d-9be403bda3cd_ef4fb52f-5d24-4c4c-8b07-6a7ad7a4e9be.webp" alt="Image" class="img-fluid" />
+                                </a>
+                            </div>
+                            <div class="col-sm-6 col-md-4 col-lg-3">
+                                <a href="http://localhost:3000/assets/images/img_4.jpg" class="image-popup gal-item">  <img src="~/Image2/d271b012-3e3b-45e7-896b-2c0f45f111a5_715b788d-9d48-47cf-8e33-5b2fddc2010c.webp" alt="Image" class="img-fluid" /></a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="add-to-cart" style="padding-left: 0px; margin-bottom: 20px;border-radius:10px;">
+                        <a type="button" style="width: 340px;height:50px; font-weight: 500; background-image: linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%);" asp-action="AddToCart" asp-route-id="@Model.IdHomstay" class="btn btn-danger ">Tiến hành đặt phòng</a>  <input hidden asp-for="IdHomstay" />
+                       
+
+                    </div>
+
+                    <!--Tiện ích-->
+                    <div class="bg-white widget card-tmp" style="padding-bottom:100px;padding-left:10px;margin-bottom:20px;">
+
+                        <h3 class="h4 text-black widget-title mb-6">1.Tiện ích</h3>
+                        <div class="row">
+                            <div class="col-6">
+                                <p>
+                                    @if (Model.Tienich5 != null)
+                                    {
+                                        <i class="fa-sharp fa-solid fa-kitchen-set text-success"></i>
+                                        @Model.Tienich5
+                                        <i class="fa-sharp fa-solid fa-check text-danger"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="fa-sharp fa-solid fa-kitchen-set text-success"></i>
+                                        <span style="text-decoration-line:line-through;">Nhà bếp</span>
+                                        <i class="fa-sharp fa-solid fa-check text-danger"></i>
+                                    }
+                                </p>
+
+                                <p>
+                                    @if (Model.Tienich1 != null)
+                                    {
+                                        <i class="fa-sharp fa-solid fa-wifi text-secondary"></i>
+                                        @Model.Tienich1
+                                        <i class="fa-sharp fa-solid fa-check text-danger"></i>
+
+                                    }
+                                    else
+                                    {
+                                        <i class="fa-sharp fa-solid fa-wifi text-secondary"></i>
+                                        <span style="text-decoration-line:line-through;">Wifi</span>
+                                        <i class="fa-sharp fa-solid fa-check text-danger"></i>
+
+                                    }
+                                </p>
+                                <p>
+                                    @if (Model.Tienich2 != null)
+                                    {
+                                        <i class="fa-sharp fa-solid fa-hard-drive text-warning"></i>
+                                        @Model.Tienich2
+                                        <i class="fa-sharp fa-solid fa-check text-danger"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="fa-sharp fa-solid fa-hard-drive text-warning"></i>
+                                        <span style="text-decoration-line:line-through;">Máy giặt</span>
+                                        <i class="fa-sharp fa-solid fa-check text-danger"></i>
+                                    }
+                                </p>
+                                <p>
+                                    <i style="color:dodgerblue" class="fa-sharp fa-solid fa-book"></i>
+                                    Sách miễn phí
+                                    <i class="fa-sharp fa-solid fa-check text-danger"></i>
+                                </p>
+                                <p>
+                                    <i style="color:navy;" class="fa-sharp fa-solid fa-mug-hot"></i>
+                                    Coffee Free
+                                    <i class="fa-sharp fa-solid fa-check text-danger"></i>
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p>
+                                    @if (Model.Tienich3 != null)
+                                    {
+                                        <i class="fa-sharp fa-solid fa-cash-register text-danger"></i>
+                                        @Model.Tienich3
+                                        <i class="fa-sharp fa-solid fa-check text-danger"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="fa-sharp fa-solid fa-cash-register text-danger"></i>
+                                        <span style="text-decoration-line:line-through;">Máy rửa chén</span>
+                                        <i class="fa-sharp fa-solid fa-check text-danger"></i>
+                                    }
+                                </p>
+                                <p>
+                                    @if (Model.Tienich4 != null)
+                                    {
+                                        <i class="fa-sharp fa-solid fa-tv text-info"></i>
+
+                                        @Model.Tienich4
+                                        <i class="fa-sharp fa-solid fa-check text-danger"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="fa-sharp fa-solid fa-tv text-info"></i>
+                                        <span style="text-decoration-line:line-through;">TV HD</span>
+                                        <i class="fa-sharp fa-solid fa-check text-danger"></i>
+                                    }
+                                </p>
+
+                                <p>
+                                    <i class="fa-sharp fa-solid fa-truck-fast text-primary"></i>
+                                    Shipper Free
+                                    <i class="fa-sharp fa-solid fa-check text-danger"></i>
+                                </p>
+                                <p>
+                                    <i style="color:greenyellow;" class="fa-sharp fa-solid fa-shower "></i>
+                                    Dầu gội đầu
+                                    <i class="fa-sharp fa-solid fa-check text-danger"></i>
+                                </p>
+
+
+                                <p>
+                                    <i style="color:darkorange" class="fa-sharp fa-solid fa-dumbbell"></i>
+                                    Gym
+                                    <i class="fa-sharp fa-solid fa-check text-danger"></i>
+                                </p>
+
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <!--End tiện ích-->
+
+                    <div class="bg-white widget card-tmp" style="padding-left:10px;">
+                        <h3 class="h4 text-black widget-title mb-3">2.Thông tin mô tả</h3>
+                        <p>@Model.Tieude</p>
+                        <p>@Model.Noidung</p>
+                    </div>
+                    <div class="bg-white widget card-tmp" style="padding-left:10px;">
+                        <h3 class="h4 text-black widget-title mb-6">3.Những điều cần biết!</h3>
+                        <p>
+                            @if (Model.Noiquy1 != null)
+                            {
+                                <a> <i class="fa-sharp fa-solid fa-clock text-info"></i>   @Model.Noiquy1</a>
+                            }
+                            else
+                            {
+                                <span style="text-decoration-line:line-through;"> <i class="fa-sharp fa-solid fa-clock text-info"></i>Nhận phòng trước 11H</span>
+
+                            }
+                        </p>
+                        <p>
+                            @if (Model.Noiquy2 != null)
+                            {
+                                <a> <i class="fa-sharp fa-solid fa-clock text-info"></i> @Model.Noiquy2</a>
+                            }
+                            else
+                            {
+                                <span style="text-decoration-line:line-through;"> <i class="fa-sharp fa-solid fa-clock text-info"></i> Trả phòng sau 3H</span>
+
+                            }
+                        </p>
+                        <p>
+                            @if (Model.Noiquy5 != null)
+                            {
+                                <a> <i class="fa-sharp fa-solid fa-key text-info"></i> @Model.Noiquy5</a>
+                            }
+                            else
+                            {
+                                <span style="text-decoration-line:line-through;"> <i class="fa-sharp fa-solid fa-key text-info"></i> Nhận phòng bằng thẻ DT </span>
+
+                            }
+                        </p>
+                        <p>
+                            @if (Model.Noiquy4 != null)
+                            {
+                                <a> <i class="fa-sharp fa-solid fa-ban-smoking text-info"></i> @Model.Noiquy4</a>
+                            }
+                            else
+                            {
+                                <span style="text-decoration-line:line-through;"><i class="fa-sharp fa-solid fa-ban-smoking text-info"></i>Không hút thuốc</span>
+
+                            }
+                        </p>
+                        <p>
+                            @if (Model.Noiquy3 != null)
+                            {
+                                <a> <i class="fa-sharp fa-solid fa-dog text-info"></i>  @Model.Noiquy3</a>
+                            }
+                            else
+                            {
+                                <span style="text-decoration-line:line-through;"><i class="fa-sharp fa-solid fa-dog text-info"></i> Cấm đem thú cưng</span>
+
+                            }
+                        </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                    <div class="bg-white widget card-tmp" style="padding-left:10px;">
+                        <h3 class="h4 text-black widget-title mb-6">4.Chủ nhà siêu cấp</h3>
+                        <p style="text-decoration:underline;"><a> <i class="fa-sharp fa-solid fa-check text-danger"></i>Chủ nhà đã được xác thực</a> </p>
+                        <p style="text-decoration:underline;"><a> <i class="fa-sharp fa-solid fa-check text-danger"></i>Đã tham gia vào ngày @Model.IdNguoidungNavigation.Ngaylap.Value.ToString("	M/d/yyyy")</a> </p>
+
+                        <img style="border-radius:100%" width="100" height="100" src="~/Image2/@Html.DisplayFor(modelItem => Model.IdNguoidungNavigation.Anhdaidien)">
+                        <img style="border-radius:15px;float:right;" width="100" height="100" src="https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/6a/17/74/6a177450-497a-c33f-cbc7-666d2d924356/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-P3-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg" />
+
+                        <strong class="d-block">Chủ nhà: @Model.IdNguoidungNavigation.Tennguoidung</strong>
+                        <strong class="d-block">SDT: @Model.IdNguoidungNavigation.Sdt</strong>
+                        <strong class="d-block">Email: @Model.IdNguoidungNavigation.Email</strong>
+                        <strong style="font-family:'Times New Roman', Times, serif;color:black;font-size:15px;">Mở Zalo, bấm quét QR phía trên để quét và xem trên điện thoại!</strong>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="~/assets_nguoidung/js/jquery.min.js"></script>
+    <script src="~/assets_nguoidung/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/assets_nguoidung/js/popper.min.js"></script>
+    <script src="~/assets_nguoidung/js/bootstrap.min.js"></script>
+    <script src="~/assets_nguoidung/js/jquery.easing.1.3.js"></script>
+    <script src="~/assets_nguoidung/js/jquery.waypoints.min.js"></script>
+    <script src="~/assets_nguoidung/js/jquery.stellar.min.js"></script>
+    <script src="~/assets_nguoidung/js/owl.carousel.min.js"></script>
+    <script src="~/assets_nguoidung/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/assets_nguoidung/js/jquery.animateNumber.min.js"></script>
+    <script src="~/assets_nguoidung/js/bootstrap-datepicker.js"></script>
+    <script src="~/assets_nguoidung/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/assets_nguoidung/js/google-map.js"></script>
+    <script src="~/assets_nguoidung/js/main.js"></script>
+
+
+    <!--<script>
+    $(document).ready(function () {
+        $(function () {
+            $(".add-to-cart").click(function () {
+                var productid = $('#IdHomstay').val();
+                var soLuong = $('#txtsoLuong').val();
+                $.ajax({
+                    url: '/api/cart/add',
+                    type: "POST",
+                    dataType: "JSON",
+                    data: {
+                        IdHomstay: productid,
+                        amount: soLuong
+                    },
+                    success: function (response) {
+                        if (response.result == 'Redirect') {
+                            window.location = response.url;
+                        }
+                        else {
+                            loadHeaderCart(); //Add Product success
+                            location.reload();
+                        }
+                        console.log(response); // log to the console to see whether it worked
+                    },
+                    error: function (error) {
+                        alert("There was an error posting the data to the server: " + error.responseText);
+                    }
+                });
+            });-->
+    @*$(".removecart").click(function () {
+            var productid = $(this).attr("data-productid");
+            $.ajax({
+                url: "api/cart/remove",
+                type: "POST",
+                dataType: "JSON",
+                data: { productID: productid },
+                success: function (result) {
+                    if (result.success) {
+                        loadHeaderCart();//Reload lai gio hang
+                        location.reload();
+                    }
+                },
+                error: function (rs) {
+                    alert("Remove Cart Error !")
+                }
+            });
+        });*@
+    <!--});
+        function loadHeaderCart() {
+            $('#miniCart').load("/AjaxContent/HeaderCart");
+            $('#numberCart').load("/AjaxContent/NumberCart");
+        }
+    });
+        </script>-->
+
+</body>
+</html>
+
+

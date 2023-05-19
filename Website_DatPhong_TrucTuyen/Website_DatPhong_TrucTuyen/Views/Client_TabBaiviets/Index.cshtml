@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Website_DatPhong_TrucTuyen.Models.TabBaiviet>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Layout_BaiViet.cshtml";
+}
+
+
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        if (item.Kiemduyet == 1)
+        {
+        <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry justify-content-end">
+                <a asp-action="Details" asp-route-id="@item.IdBaiviet" class="block-20" style="background-image: url(/Image2/@Html.DisplayFor(modelItem => item.Hinhanh));border-radius:15px;">
+                </a>
+                <div style="width:300px;height:310px;" class="text">
+                    <div class="d-flex align-items-center mb-4 topp">
+                        <div class="one">
+                            <span class="day">@item.Ngaydang.Value.ToString("dd")</span>
+                        </div>
+                        <div class="two" style="padding-left:20px;">
+                            <span class="yr">@item.Ngaydang.Value.ToString("yyyy")</span>
+                            <span class="mos">@item.Ngaydang.Value.ToString("MMMM")</span>
+                        </div>
+                    </div>
+                    <h3 class="heading"><a href="#">Tiêu đề:@item.Tieude</a></h3>
+                    <h5 class="heading text-info">@item.IdChudeNavigation.Tenchude </h5>
+
+                    <p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:500">Tác giả: @item.IdNguoidungNavigation.Tennguoidung</p>
+                    <p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:500"><i class="fa-solid fa-eye"></i>  Lượt xem:@item.Luotxem</p>
+                    <p><a asp-action="Details" asp-route-id="@item.IdBaiviet" class="btn btn-primary">Đọc thêm</a></p>
+                </div>
+            </div>
+        </div>
+        }
+
+    }
+}
+
+
+

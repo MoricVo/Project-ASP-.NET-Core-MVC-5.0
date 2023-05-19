@@ -1,0 +1,45 @@
+﻿@model List<Website_DatPhong_TrucTuyen.Models.CartItem>
+@{
+    int num = 1;        // số thứ tự
+    int amount = 0;     // thành tiền
+    int total = 0;      // tổng tiền
+
+
+    Layout = "~/Views/Shared/Layout_DangKyTro.cshtml";
+
+}
+<br />
+<br />
+<br />
+<h3>Vui lòng kiểm tra lại thông tin và nhập đầy đủ thông tin!</h3>
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <h4 class="text-primary">Thông tin khách hàng</h4>
+        <form class="forms-sample" asp-action="CreateBill">
+            <div class="mb-3">
+                <label>Họ tên</label>
+                <input name="cusName" class="form-control" type="text" />
+            </div>
+            <div class="mb-3">
+                <label>Điện thoại</label>
+                <input name="cusPhone" class="form-control" type="text" />
+            </div>
+            <div class="mb-3">
+                <label>Email</label>
+                <input name="Email" class="form-control" type="text" />
+            </div>
+            <div class="mb-3">
+                <label>Số lượng người ở</label>
+                <input name="SL" class="form-control" type="text" />
+            </div>
+            <div class="mb-3">
+                <label>Địa chỉ</label>
+                <textarea name="cusAddress" class="form-control"></textarea>
+            </div>
+            <div class="mb-3">
+                <input type="submit" class="btn btn-primary" value="Xác nhận đơn hàng" />
+            </div>
+        </form>
+
+    </div>
+</div>

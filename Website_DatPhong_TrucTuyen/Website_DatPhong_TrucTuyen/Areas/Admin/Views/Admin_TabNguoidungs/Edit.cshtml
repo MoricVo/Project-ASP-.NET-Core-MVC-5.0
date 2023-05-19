@@ -1,0 +1,96 @@
+﻿@model Website_DatPhong_TrucTuyen.Models.TabNguoidung
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 style="padding:5px" class="card-title">Chỉnh sửa dữ liệu</h4>
+
+            <div class="page-header">
+                <div class="header-sub-title">
+                    <nav class="breadcrumb breadcrumb-dash">
+                        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="mdi mdi-home"></i>Trang chủ</a>
+                        <a asp-area="Admin" asp-controller="Admin_TabNguoidungs" asp-action="Index" class="breadcrumb-item"> Danh sách người dùng</a>
+                        <span class="breadcrumb-item active">Chỉnh sửa người dùng</span>
+                    </nav>
+                </div>
+            </div>
+            <p class="card-description"> Bảng người dùng </p>
+            <form asp-action="Edit" asp-route-id="@Model.IdNguoidung" method="post" class="forms-sample" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdNguoidung" />
+                <div class="form-group">
+                    <label>Tên người dùng</label>
+                    <input type="text" asp-for="Tennguoidung" class="form-control" placeholder="Nhập họ và tên">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Địa chỉ</label>
+                    <input type="text" asp-for="Diachi" class="form-control" id="exampleInputName1" placeholder="Địa chỉ">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Ngày sinh</label>
+                    <input type="date" asp-for="Ngaysinh" class="form-control" id="exampleInputName1" placeholder="Ngày sinh">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Số điện thoại</label>
+                    <input type="text" asp-for="Sdt" class="form-control" id="exampleInputName1" placeholder="SDT">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Địa chỉ email</label>
+                    <input type="email" asp-for="Email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Cmnd</label>
+                    <input type="text" asp-for="Cmnd" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Anhdaidien">Uploads ảnh</label>
+                    <input type="file" name="file" class="form-control" placeholder="chọn ảnh">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Tên tài khoản</label>
+                    <input type="text" asp-for="Taikhoan" class="form-control" id="exampleInputEmail3" placeholder="Tài khoản">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Mật khẩu</label>
+                    <input type="text" asp-for="Matkhau" class="form-control" id="exampleInputPassword4" placeholder="Mật khẩu">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Salt(Cảnh báo cấm thay đổi!)</label>
+                    <input type="text" asp-for="Salt" class="form-control" id="exampleInputPassword4" placeholder="Mật khẩu">
+                </div>
+                <div class="form-group">
+                    <label for="exampleSelectGender">Loại người dùng</label>
+                    <select asp-for="Loainguoidung" class="form-control" id="exampleSelectGender">
+                        <option>ChuNha</option>
+                        <option>KhachHang</option>
+                        <option>NhanVien</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputCity1">Kích hoạt</label>
+                    <input type="text" asp-for="Kichhoat" class="form-control" id="exampleInputCity1" placeholder="Kích hoạt">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputCity1">Ngày đăng</label>
+                    <input type="date" asp-for="Ngaylap" class="form-control" id="exampleInputCity1" placeholder="Ngày lập">
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Lưu thay đổi</button>
+                <button class="btn btn-dark">Hủy thao tác</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
